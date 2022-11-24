@@ -1,19 +1,22 @@
 #include<iostream>
 using namespace std;
-int C(int n, int m)
+int f(int x)
 {
-	if (m == 0 || m == n)
+	if (x == 1)
 		return 1;
 	else
-		return C(n - 1, m) + C(n - 1, m - 1);
+		if (x == 2)
+			return 2;
+		else
+			return f(x - 1) + 2 * f(x - 2);
 }
 int main()
 {
 	cout << "2022110957彭文杰" << endl;
-	cout << "请按从大到小的顺序输入两个正整数：";
-	int n, m;
-	cin >> n >> m;
-	cout << n << "选" << m << "的组合数为：" << C(n, m) << endl;
+	cout << "请输入数列的序号：";
+	int x;
+	cin >> x;
+	cout << "数列的第" << x << "项为：" << f(x) << endl;
 	system("pause");
 	return 0;
 }
